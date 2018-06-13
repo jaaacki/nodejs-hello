@@ -12,7 +12,8 @@ services:
       - "traefik.frontend.rule=Host:hello.us.sg"
       - "traefik.port=8080"
       - "traefik.docker.network=reverse-proxy"
-    networks:
-      reverse-proxy:
-        external: true
-          name: reverse-proxy
+
+networks:
+  reverse-proxy:
+    external:
+      name: reverse-proxy
