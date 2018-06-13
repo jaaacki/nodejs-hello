@@ -14,5 +14,5 @@ services:
       - "traefik.docker.network=reverse-proxy"
     networks:
       reverse-proxy:
-        external:
+        external: true
           name: reverse-proxy
