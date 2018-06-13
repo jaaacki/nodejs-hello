@@ -4,5 +4,16 @@ services:
   node-hello:
     image: jaaacki/node-hello
     container_name: node-hello
-    ports:
-      - 6001:8080
+    networks:
+      - reverse-proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=node-hello"
+      - "traefik.frontend.rule=Host:hello.us.sg"  
+#      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefixStrip: /portainer"
+      - "traefik.port=8080"
+      - "traefik.docker.network=reverse-proxy"
+    networks:
+      reverse-proxy:
+        external:
+          name: reverse-proxy
