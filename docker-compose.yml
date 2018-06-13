@@ -9,8 +9,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=node-hello"
-      - "traefik.frontend.rule=Host:hello.us.sg"  
-#      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefixStrip: /portainer"
+      - "traefik.frontend.rule=Host:hello.us.sg"
       - "traefik.port=8080"
       - "traefik.docker.network=reverse-proxy"
     networks:
